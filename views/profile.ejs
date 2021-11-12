@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    .Img-Header{
+      border: 1px black;
+      border-radius: 50%;
+      width: 40px;
+      height: 35px;
+    }
+    .image-profile{
+        background-color: blanchedalmond;
+        width: 80px;
+        height: 70px;
+        border: 1px black;
+        border-radius: 50%;
+    }
+    .cards{
+      display: flex;
+      justify-content: space-between;
+    }
+    .cards > .card { 
+      width: 450px;
+      min-height: 400px;
+      max-height: 590px;
+    }
+    video{
+      height: 330px;
+    }
+  </style>
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand text-light" href="/home">Vines</a>
+        <a href="/me" class="text-light">Profile</a>
+        <a href="/auth/signout" class="text-light">SignOut</a>
+        <form class="form-inline" action="/search" method="GET">
+          <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+    <div class="container">
+        <div class=" mt-2 card text-white bg-dark mb-3">
+          <div class="card-body">
+              <img class="image-profile"  src="<%= result[0].PostedBy[0].image%>">
+              <h2 class="card-title"> <%=result[0].PostedBy[0].Username%></h2>
+              <h4>Video: <%= postcount %></h4>
+              <h4><a href="/user/:id/followers">Followers: <%= followers%></a></h4>
+              <h4><a href="/user/<%=result[0].PostedBy[0]._id%>/followings">Followings: <%= followings%></a></h4>
+              <a href="/me/update">Profile Update</a>
+          </div>
+        </div>
+        <div class="cards"> 
+        <% result.forEach((result) => { %> 
+          
+            <div class="card  mt-3">
+                <div class="card-header"><img src="<%= result.PostedBy[0].image %>" class="Img-Header" alt=""> <%= result.PostedBy[0].Username %></div>
+                
+                  <video class="card-img-top" controls>
+                    <source src="<%= result.video %>" type="video/mp4">  
+                    <source src="<%= result.video %>" type="video/webm"> 
+                    <source src="<%= result.video %>" type="video/ogg"> 
+                  </video>
+                <div class="card-body">
+                  <h5 class="card-title"><%=result.title%></h5>
+                  <p class="card-text"><%=result.desc%><p>
+                  <a href="/me/update/<%=result._id%>">Edit</a>&nbsp; &nbsp; 
+                  <a href="/me/delete/<%=result._id%>">Delete</a>
+                </div>
+              </div>
+        <%});%>
+        </div>
+    </div>
+</body>
+</html>
