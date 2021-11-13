@@ -28,9 +28,18 @@ video{
     height: 40px;
     border-radius: 50%;
     border: 3px solid #d53a9d;
-    
     padding: 5px;
   }
+  @media (max-width: 770px) {
+      .containers{
+        display: flex;
+        flex-direction: column;
+      
+      }
+    .containers>   .card{
+      width: 100%;
+    }
+}
 </style>
 <body>
     <nav class="navbar navbar-light bg-dark">

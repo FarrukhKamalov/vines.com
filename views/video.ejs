@@ -8,29 +8,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <style>
-  .containers{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+.containers{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
 
 .containers > .card{
   width: 85%;
   height: auto;
+  height:100vh;
 }
 
-video{
-  height: 397px;
+.containers > .card > video {
+ min-height: 70vh;
+ max-height: 90vh;
+}  
+
+.card-header > img{
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   border: 3px solid #d53a9d;
+   padding: 5px;
 }
-  
-  .card-header > img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 3px solid #d53a9d;
-    
-    padding: 5px;
-  }
 </style>
 <body>
     <nav class="navbar navbar-light bg-dark">

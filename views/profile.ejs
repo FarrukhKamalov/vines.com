@@ -33,6 +33,16 @@
     video{
       height: 330px;
     }
+    @media (max-width: 750px) {
+      .containers{
+        display: flex;
+        flex-direction: column;
+      
+      }
+    .containers>   .card{
+      width: 100%;
+    }
+}
   </style>
 <body>
     <nav class="navbar navbar-light bg-dark">
@@ -56,6 +66,7 @@
           </div>
         </div>
         <div class="cards"> 
+          
         <% result.forEach((result) => { %> 
           
             <div class="card  mt-3">
